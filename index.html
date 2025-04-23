@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reynie Coffee Shop</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.6; /* Improves readability */
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px; /* Increased padding */
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+            background: linear-gradient(to right, #8B4513, #A0522D); /* Adjusted gradient */
+        }
+        header img {
+            width: 70px; /* Larger image */
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid #fff; /* White border */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em; /* Larger heading */
+        }
+        h2 {
+            font-size: 1.8em; /* Larger subheadings */
+        }
+        p {
+            font-size: 1.1em; /* Larger paragraph text */
+            margin-bottom: 1.5em; /* More space between paragraphs */
+        }
+        footer {
+            display: none;
+        }
+        .content {
+            padding: 40px; /* Increased padding */
+            text-align: center;
+        }
+        .coffee-item {
+            margin: 30px auto;
+            padding: 20px;
+            border: 2px solid;
+            border-radius: 12px;
+            width: 80%;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+        }
+        .coffee-item:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+        .button {
+            padding: 15px 30px; /* Larger buttons */
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1.1em; /* Larger button text */
+        }
+        .button:hover {
+            transform: translateY(-4px); /* Increased hover effect */
+        }
+        input, button {
+            margin: 15px auto;
+            padding: 15px;
+            width: 80%;
+            border: 2px solid;
+            border-radius: 8px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+            font-size: 1em; /* Larger input/button text */
+        }
+        input:focus {
+            outline: none;
+        }
+
+        /* Brown Theme */
+        body.brown-theme {
+            background-color: #f5f5dc; /* Lighter background */
+            color: #553300; /* Darker text */
+        }
+        header.brown-theme {
+            background: linear-gradient(to right, #8B4513, #A0522D); /* Adjusted gradient */
+            color: #fff;
+        }
+        .coffee-item.brown-theme {
+            background-color: #fff8f0;
+            border-color: #996633;
+        }
+        .button.brown-theme {
+            background-color: #8B4513;
+            color: white;
+        }
+
+        /* Dark Theme */
+        body.dark-theme {
+            background-color: #2b2b2b;
+            color: #e5e5e5;
+        }
+        header.dark-theme {
+            background: linear-gradient(to right, #1c1c1c, #333333);
+            color: #f5f5f5;
+        }
+        .coffee-item.dark-theme {
+            background-color: #333333;
+            border-color: #444444;
+        }
+        .button.dark-theme {
+            background-color: #444444;
+            color: #e5e5e5;
+        }
+
+        #header-img-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #main-header-img {
+            width: 200px; /* Larger image */
+            height: auto;
+            margin-bottom: 20px; /* More space */
+        }
+        .coffee-img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="brown-theme">
+    <header class="brown-theme">
+        <div id="header-img-container">
+            <img id="main-header-img" src="profole1.jpeg" alt="Main Profile Picture">
+        </div>
+        <h1>Reynie Coffee Shop</h1>
+        <button class="button brown-theme" onclick="toggleTheme()">Switch Theme</button>
+    </header>
+    <section id="welcome" class="content">
+        <h2>Welcome!</h2>
+        <p>We serve freshly brewed coffee with love and care. Discover our menu and enjoy the best coffee in town!  Our coffee beans are sourced ethically and roasted in-house to ensure the highest quality and freshest flavor. We pride ourselves on providing a welcoming atmosphere and exceptional customer service.</p>
+        <button class="button brown-theme" onclick="showCoffeeSelection()">Check Our Coffee Selection</button>
+    </section>
+    <section id="coffee-selection" class="content" style="display: none;">
+        <h2>Available Coffee</h2>
+        <div class="coffee-item brown-theme">
+            <p><strong>Espresso</strong> - ₱50</p>
+            <input type="file" id="espresso-image" accept="coffe1.jpg">
+            <img class="coffee-img" id="espresso-img" src="" alt="Espresso Image">
+            <button class="button brown-theme" onclick="addToCart(250)">Add to Cart</button>
+        </div>
+        <div class="coffee-item brown-theme">
+            <p><strong>Cappuccino</strong> - ₱70</p>
+            <input type="file" id="cappuccino-image" accept="coffe2.jpg">
+            <img class="coffee-img" id="cappuccino-img" src="" alt="Cappuccino Image">
+            <button class="button brown-theme" onclick="addToCart(300)">Add to Cart</button>
+        </div>
+        <div class="coffee-item brown-theme">
+            <p><strong>Matcha</strong> - ₱50</p>
+            <input type="file" id="latte-image" accept="coffe.3jpg">
+            <img class="coffee-img" id="latte-img" src="" alt="Latte Image">
+            <button class="button brown-theme" onclick="addToCart(350)">Add to Cart</button>
+        </div>
+        <h2>Total: ₱<span id="total">0</span></h2>
+        <button class="button brown-theme" onclick="showBuyerInfo()">Proceed to Buyer Information</button>
+        <button class="button brown-theme" onclick="goBack('welcome')">Back</button>
+    </section>
+    <section id="buyer-info" class="content" style="display: none;">
+        <h2>Buyer Information</h2>
+        <form id="orderForm" onsubmit="thankYou(event)">
+            <label for="name">Full Name:</label>
+            <br>
+            <input type="text" id="name" required>
+            <br>
+            <label for="address">Address:</label>
+            <br>
+            <input type="text" id="address" required>
+            <br>
+            <label for="contact">Contact Number:</label>
+            <br>
+            <input type="tel" id="contact" required>
+            <br>
+            <button class="button brown-theme" type="submit">Submit</button>
+        </form>
+        <div id="thankYouMessage" style="display: none;">
+            <h2>Thanks for ordering!</h2>
+            <p>We appreciate your order and will process it shortly.</p>
+        </div>
+        <button class="button brown-theme" onclick="goBack('coffee-selection')">Back</button>
+    </section>
+    <script>
+        let total = 0;
+
+        // Display coffee selection
+        function showCoffeeSelection() {
+            document.getElementById('welcome').style.display = 'none';
+            document.getElementById('coffee-selection').style.display = 'block';
+        }
+
+        // Add item to cart
+        function addToCart(price) {
+            total += price;
+            document.getElementById('total').textContent = total;
+        }
+
+        // Display buyer info section
+        function showBuyerInfo() {
+            document.getElementById('coffee-selection').style.display = 'none';
+            document.getElementById('buyer-info').style.display = 'block';
+        }
+
+        // Go back to the previous section
+        function goBack(sectionId) {
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Toggle theme
+        function toggleTheme() {
+            const body = document.body;
+            const header = document.querySelector('header');
+            const buttons = document.querySelectorAll('.button');
+            const coffeeItems = document.querySelectorAll('.coffee-item');
+
+            if (body.classList.contains('brown-theme')) {
+                body.className = 'dark-theme';
+                header.className = 'dark-theme';
+                buttons.forEach(button => button.className = 'button dark-theme');
+                coffeeItems.forEach(item => item.className = 'coffee-item dark-theme');
+            } else {
+                body.className = 'brown-theme';
+                header.className = 'brown-theme';
+                buttons.forEach(button => button.className = 'button brown-theme');
+                coffeeItems.forEach(item => item.className = 'coffee-item brown-theme');
+            }
+        }
+
+        // Show thank-you message after form submission
+        function thankYou(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const name = document.getElementById('name').value;
+
+            // Hide the form and display the thank-you message
+            document.getElementById('orderForm').style.display = 'none';
+            const thankYouMessage = document.getElementById('thankYouMessage');
+            thankYouMessage.style.display = 'block';
+            thankYouMessage.innerHTML = `<h2>Thanks for ordering, ${name}!</h2><p>We appreciate your order and will process it shortly.</p>`;
+        }
+
+        // Function to handle image uploads and display
+        function handleImageUpload(inputId, imgId) {
+            const input = document.getElementById(inputId);
+            const img = document.getElementById(imgId);
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                img.src = e.target.result;
+            }
+
+            if (input.files && input.files[0]) {
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Add event listeners for image uploads
+        document.getElementById('espresso-image').addEventListener('change', () => handleImageUpload('espresso-image', 'espresso-img'));
+        document.getElementById('cappuccino-image').addEventListener('change', () => handleImageUpload('cappuccino-image', 'cappuccino-img'));
+        document.getElementById('latte-image').addEventListener('change', () => handleImageUpload('latte-image', 'latte-img'));
+    </script>
+</body>
+</html>
