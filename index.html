@@ -137,7 +137,7 @@
 <body class="brown-theme">
     <header class="brown-theme">
         <div id="header-img-container">
-            <img id="main-header-img" src="profole1.jpeg" alt="Main Profile Picture">
+            <img id="main-header-img" src="profile-placeholder.png" alt="profile1.jpeg">
         </div>
         <h1>Reynie Coffee Shop</h1>
         <button class="button brown-theme" onclick="toggleTheme()">Switch Theme</button>
@@ -150,21 +150,21 @@
     <section id="coffee-selection" class="content" style="display: none;">
         <h2>Available Coffee</h2>
         <div class="coffee-item brown-theme">
-            <p><strong>Espresso</strong> - ₱50</p>
-            <input type="file" id="espresso-image" accept="coffe1.jpg">
-            <img class="coffee-img" id="espresso-img" src="" alt="Espresso Image">
+            <p><strong>Espresso</strong> - ₱250</p>
+            <input type="file" id="espresso-image" accept="image/jpeg">
+            <img class="coffee-img" id="espresso-img" src="" alt="coffe1.jpg">
             <button class="button brown-theme" onclick="addToCart(250)">Add to Cart</button>
         </div>
         <div class="coffee-item brown-theme">
-            <p><strong>Cappuccino</strong> - ₱70</p>
-            <input type="file" id="cappuccino-image" accept="coffe2.jpg">
-            <img class="coffee-img" id="cappuccino-img" src="" alt="Cappuccino Image">
+            <p><strong>Cappuccino</strong> - ₱300</p>
+            <input type="file" id="cappuccino-image" accept="image/jpeg">
+            <img class="coffee-img" id="cappuccino-img" src="" alt="coffe2.jpg">
             <button class="button brown-theme" onclick="addToCart(300)">Add to Cart</button>
         </div>
         <div class="coffee-item brown-theme">
-            <p><strong>Matcha</strong> - ₱50</p>
-            <input type="file" id="latte-image" accept="coffe.3jpg">
-            <img class="coffee-img" id="latte-img" src="" alt="Latte Image">
+            <p><strong>Matcha</strong> - ₱350</p>
+            <input type="file" id="latte-image" accept="image/jpeg">
+            <img class="coffee-img" id="latte-img" src="" alt="coffe3">
             <button class="button brown-theme" onclick="addToCart(350)">Add to Cart</button>
         </div>
         <h2>Total: ₱<span id="total">0</span></h2>
@@ -271,9 +271,9 @@
         }
 
         // Add event listeners for image uploads
-        document.getElementById('espresso-image').addEventListener('change', () => handleImageUpload('espresso-image', 'espresso-img'));
-        document.getElementById('cappuccino-image').addEventListener('change', () => handleImageUpload('cappuccino-image', 'cappuccino-img'));
-        document.getElementById('latte-image').addEventListener('change', () => handleImageUpload('latte-image', 'latte-img'));
+        document.getElementById('espresso-image').addEventListener('change', () => handleImageUpload('coffe1.jpg', 'coffe1.jpg'));
+        document.getElementById('cappuccino-image').addEventListener('change', () => handleImageUpload('coffe2.jpg', 'cffe2.jpg'));
+        document.getElementById('Matcha-image').addEventListener('change', () => handleImageUpload('coffe3.jpg', 'coffe3.jpg'));
     </script>
 </body>
 </html>
